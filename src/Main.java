@@ -26,6 +26,9 @@ public class Main {
             System.out.println("\n...\nQUE INTERESSANT.\n...\nEM SEMBLA,\nQUE NO HAS ENCERTAT\nEL NOMBRE.");
 
             System.out.println("\n...\nTOT I AIXÒ.\n\nHE DECIDIT, DONAR-TE\nUNA SEGONA\nOPORTUNITAT.");
+        
+
+            
 
             if(inputNum > randomNum) {
 
@@ -52,9 +55,11 @@ public class Main {
 
             else{
 
-                System.out.println("\n...\nQUE INTERESSANT.\n...\nEM SEMBLA,\nQUE NO HAS ENCERTAT\nEL NOMBRE. \nMALA SORT.");
+                System.out.println("...QUE INTERESSANT....EM SEMBLA,QUE NO HAS ENCERTATEL NOMBRE. QUE PRINGAO.");
 
             }
+
+
 
         }
 
