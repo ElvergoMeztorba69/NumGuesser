@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -11,55 +12,62 @@ public class Main {
 
         System.out.println("UN NOMBRE SECRET \nS'HA GENERAT.\nINTENTA ENDEVINAR \nEL NOMBRE.");
 
-        int inputNum = input1.nextInt();
+        boolean matchFound = false;
 
-        System.out.println("EL NOMBRE \nQUE HAS INTRODUIT \nÉS " + inputNum + ".");
+        while(!matchFound) {
 
-        if(randomNum == inputNum){
+            try {
 
-            System.out.println("\nENHORABONA.\nSEMBLA QUE HAS\nENCERTAT EL NOMBRE.");
+                System.out.println("INTRODUEIX UN NOMBRE \nENTRE EL " + min + "\nI EL " + max + ".");
 
-        }
+                int inputNum = input1.nextInt();
 
-        else {
+                if (inputNum < min || inputNum > max){
 
-            System.out.println("\n...\nQUE INTERESSANT.\n...\nEM SEMBLA,\nQUE NO HAS ENCERTAT\nEL NOMBRE.");
+                    System.out.println("...\nEL NOMBRE QUE HAS INTRODUÏT\nNO ES TROBA \n DINS ELS LIMITS");
+                    continue;
 
-            System.out.println("\n...\nTOT I AIXÒ.\n\nHE DECIDIT, DONAR-TE\nUNA SEGONA\nOPORTUNITAT.");
-        
+                }
 
-            
+                if (randomNum == inputNum) {
 
-            if(inputNum > randomNum) {
+                    System.out.println("\nENHORABONA.\nSEMBLA QUE HAS\nENCERTAT EL NOMBRE.");
 
-                System.out.println("\nET DONARÉ\nUNA PISTA.\n\nEL TEU NOMBRE\nÉS MÉS PETIT\nQUE EL NOMBRE GENERAT.");
+                    matchFound = true;
+
+                }
+
+                else if (inputNum > randomNum) {
+
+                    System.out.println("\n...\nPERÒ EL NOMBRE\nNO ERA CORRECTE.");
+
+                    System.out.println("\nET DONARÉ\nUNA PISTA.\n\nEL TEU NOMBRE\nÉS MÉS GRAN\nQUE EL NOMBRE GENERAT.");
+
+                    max = inputNum - 1;
+
+                    System.out.println("INTRODUEIX UN NOMBRE \nENTRE EL " + min + "\nI EL " + max + ".");
+
+                }
+
+                else {
+
+                    System.out.println("\n...\nPERÒ EL NOMBRE\nNO ERA CORRECTE.");
+
+                    System.out.println("\nET DONARÉ\nUNA PISTA.\n\nEL TEU NOMBRE\nÉS MÉS PETIT\nQUE EL NOMBRE GENERAT.");
+
+                    min = inputNum + 1;
+
+                    System.out.println("INTRODUEIX UN NOMBRE \nENTRE EL " + min + "\nI EL " + max + ".");
+
+                }
 
             }
 
-            else{
+            catch (InputMismatchException e) {
 
-                System.out.println("\nET DONARÉ\nUNA PISTA.\n\nEL TEU NOMBRE\nÉS MÉS GRAN\nQUE EL NOMBRE GENERAT.");
-
-            }
-
-
-            System.out.println("\n...ARA.\nARA, INTENTA ENDEVINAR\n EL NOMBRE.");
-
-            int inputNum2 = input1.nextInt();
-
-            if(randomNum == inputNum2){
-
-                System.out.println("\nENHORABONA.\nSEMBLA QUE HAS\nENCERTAT EL NOMBRE.");
+                System.out.println("...\nPERÒ NO ES VA INTRODUÏR UN NOMBRE.");
 
             }
-
-            else{
-
-                System.out.println("...QUE INTERESSANT....EM SEMBLA,QUE NO HAS ENCERTATEL NOMBRE. QUE PRINGAO.");
-
-            }
-
-
 
         }
 
